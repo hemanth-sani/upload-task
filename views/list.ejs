@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/header.css">
+</head>
+<header class="main-header">
+    <nav>
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a href="/">Upload</a>
+            </li>
+            <li class="main-header__item">
+                <a href="/list">List</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<body>
+    <main>
+        <h1>Your list of file are down below</h1>
+        <% if (files.length > 0) { %>
+            <ol>
+            <% for (let file of files) { %>
+                
+                <li >
+                    <div>
+                <h3><%=file%></h3>
+             
+                
+                <form class="b" action="/delete" method="POST">
+                    <input type="hidden" value="<%=file%>" name="filename">
+                    <button type="submit">Delete</button>
+                    
+                </form>
+ 
+            <form class="c" action="/download" method="POST">
+                <input type="hidden" value="<%=file%>" name="filename">
+                <button type="submit">Download</button>
+            </form>
+        </div>
+                </li>
+            
+            <% } %>
+        </ol>
+        <% } %> 
+    </main>
+</body>
+
+</html>
