@@ -48,12 +48,7 @@ const upload = multer({
             cb(null, `${unique}-${ext}`);
             console.log(unique);
         }
-    }).on('success', function handlePage(response) {
-      // do something with response.data
-      if (response.hasNextPage()) {
-          response.nextPage().on('success', handlePage).send();
-      }
-  }).send()
+    })
 });
 
 

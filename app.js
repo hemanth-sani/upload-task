@@ -26,5 +26,5 @@ app.use(listFile);
 
 
 
-app.listen(5200);
-console.log('your listening 3000');
+app.listen(process.env.PORT || 5200);
+console.log('your listening 5200');
